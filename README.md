@@ -191,6 +191,10 @@ int main(int argc, char **argv)
         initialLocation = generateCoordinate();
         getRandomDirection(initialDirection);
 ```
+### The command needed to compile and run the program
+./coursework x y direction | java -jar drawapp.jar
+
+write down the x y which are the start position on the grid with a direction("south", "north", "west", "east")
 ## algorithm
 I didn't use any specific algorithm. I made a robot to move right if it met any obstacles or the edge of the grid. However, to prevent the infinite loop, I added to turn right randomly after the forward function used 40times.
 ```python
