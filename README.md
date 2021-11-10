@@ -1,5 +1,12 @@
 # Description of Ccoursework
 
+## Description
+
+The purpose of this game is the robot(green triangle) finding the marker(gray box) on the grid. The background of this game is the grid with obstacles and a marker.
+The grid is 10*10 and obstacles and a marker is placed randomly as it compiles. 
+I didn't use any specific algorithms(ex. dfs). I made a robot to turn right when it met the edge of the grid or obstacles. However, to prevent the infinite loop, while the forward function is used more than 40 times, the robot turn right randomly.
+
+
 ## Background
 
 ![image](https://user-images.githubusercontent.com/91853600/141026451-4dd2af42-315e-4ce5-9cb8-b3e53e1eaa20.png)
@@ -185,11 +192,12 @@ int main(int argc, char **argv)
         getRandomDirection(initialDirection);
 ```
 ## algorithm
-
+I didn't use any specific algorithm. I made a robot to move right if it met any obstacles or the edge of the grid. However, to prevent the infinite loop, I added to turn right randomly after the forward function used 40times.
 ```python
 void algorithm(robot *aRobot, objectlist listofobject)
 {
     int nums_forward =0;
+    
     while(!atMarker(*aRobot, listofobject))
     {
         
@@ -202,8 +210,9 @@ void algorithm(robot *aRobot, objectlist listofobject)
             right(aRobot);
             
         }
-        if(nums_forward >=40)
+        for(int i=0; i<1000 ; i+=rand()%10)
         {
+            if(nums_forward ==40 + i)
             right(aRobot);
             
         }
