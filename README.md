@@ -57,6 +57,7 @@ void drawObject(objectlist *objectlist)
 
 ### Robot and the direction
 ![image](https://user-images.githubusercontent.com/91853600/141026936-5b59d481-127c-4cab-8407-47aaf7809935.png)
+![image](https://user-images.githubusercontent.com/91853600/141027043-5c912c25-098a-4c2a-85a1-61c93989c3ee.png)
 
 Write down the vertices of the robot in each directions
 ```
@@ -136,9 +137,83 @@ void left(robot*aRobot)
       strcpy(aRobot->facing, "south");
     drawRobot(aRobot);
 }
-
+```
 Robot right
 ```
+void right(robot*aRobot)
+{
+    if(strcmp(aRobot->facing, "north") ==0)
+      strcpy(aRobot->facing, "east");
+    else if (strcmp(aRobot->facing, "east") ==0)
+      strcpy(aRobot->facing, "south");
+    else if (strcmp(aRobot->facing, "south") ==0)
+      strcpy(aRobot->facing, "west");
+    else if (strcmp(aRobot->facing, "west") ==0)
+      strcpy(aRobot->facing, "north");
+    drawRobot(aRobot);
+}
+```
+Robot forward
+```
+void forward(robot *aRobot, objectlist listofobject)
+{
+    if(canMoveForward(*aRobot,listofobject)==1)
+    {
+        aRobot -> currentLocation = getNewLocation(aRobot->currentLocation,aRobot->facing);
+        drawRobot(aRobot);
+    }
+}
+```
+### How to understand the code written down in the terminal
+![image](https://user-images.githubusercontent.com/91853600/141027043-5c912c25-098a-4c2a-85a1-61c93989c3ee.png)
+![image](https://user-images.githubusercontent.com/91853600/141026936-5b59d481-127c-4cab-8407-47aaf7809935.png)
+```
+int main(int argc, char **argv)
+{
+    srand(time(NULL));
+    coordinate initialLocation;
+    char *initialDirection;
+    if(argc ==4)
+    {
+        initialLocation.x =(atoi(argv[1])-1)*grid_width+grid_start;
+        initialLocation.y =(atoi(argv[2])-1)*grid_width+grid_start;
+        initialDirection = argv[3];
+    }
+    else
+    {
+        initialLocation = generateCoordinate();
+        getRandomDirection(initialDirection);
+```
+## algorithm
 
+```
+void algorithm(robot *aRobot, objectlist listofobject)
+{
+    int nums_forward =0;
+    while(!atMarker(*aRobot, listofobject))
+    {
+        
+        forward(aRobot, listofobject);
+        nums_forward +=1;
+        while(!canMoveForward(*aRobot, listofobject))
+        {
+            
+            
+            right(aRobot);
+            
+        }
+        if(nums_forward >=40)
+        {
+            right(aRobot);
+            
+        }
+        
+        sleep(500);
+        
+        
+    }
+    
+}
+```
 
 
