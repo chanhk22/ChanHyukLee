@@ -2,6 +2,9 @@
 
 ## Background
 
+![image](https://user-images.githubusercontent.com/91853600/141026451-4dd2af42-315e-4ce5-9cb8-b3e53e1eaa20.png)
+
+
 Draw the grid
 ```
 void drawgrid()
