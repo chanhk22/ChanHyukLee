@@ -56,6 +56,8 @@ void drawObject(objectlist *objectlist)
 ## foreground
 
 ### Robot and the direction
+![image](https://user-images.githubusercontent.com/91853600/141026936-5b59d481-127c-4cab-8407-47aaf7809935.png)
+
 Write down the vertices of the robot in each directions
 ```
 vertices setDirection(char facing[], coordinate currentLocation)
