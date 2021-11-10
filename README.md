@@ -6,7 +6,7 @@
 
 
 Draw the grid
-```
+```python
 void drawgrid()
 {
     background();
@@ -21,7 +21,7 @@ void drawgrid()
 
 ```
 Draw the robot
-```
+```python
 void drawRobot(robot*aRobot)
 {
     foreground();
@@ -33,7 +33,7 @@ void drawRobot(robot*aRobot)
 ```
 
 Create objects(Marker and obstacles)
-```
+```python
 void createObjects(objectlist *objectlist, robot aRobot)
 {
     for(int i =0; i<num_obstacles;i++)
@@ -44,7 +44,7 @@ void createObjects(objectlist *objectlist, robot aRobot)
 }
 ```
 Draw objects on the grid
-```
+```python
 void drawObject(objectlist *objectlist)
 {
     for(int i =0; i < *objectlist -> length; i++)
@@ -60,7 +60,7 @@ void drawObject(objectlist *objectlist)
 ![image](https://user-images.githubusercontent.com/91853600/141027043-5c912c25-098a-4c2a-85a1-61c93989c3ee.png)
 
 Write down the vertices of the robot in each directions
-```
+```python
 vertices setDirection(char facing[], coordinate currentLocation)
 {
     vertices robotVertices;
@@ -110,7 +110,7 @@ vertices setDirection(char facing[], coordinate currentLocation)
 ```
 
 Draw robot
-```
+```python
 void drawRobot(robot*aRobot)
 {
     foreground();
@@ -124,7 +124,7 @@ void drawRobot(robot*aRobot)
 ### function for robot direciton
 
 Robot left
-```
+```python
 void left(robot*aRobot)
 {
     if(strcmp(aRobot->facing, "north") ==0)
@@ -139,7 +139,7 @@ void left(robot*aRobot)
 }
 ```
 Robot right
-```
+```python
 void right(robot*aRobot)
 {
     if(strcmp(aRobot->facing, "north") ==0)
@@ -154,7 +154,7 @@ void right(robot*aRobot)
 }
 ```
 Robot forward
-```
+```python
 void forward(robot *aRobot, objectlist listofobject)
 {
     if(canMoveForward(*aRobot,listofobject)==1)
@@ -167,7 +167,7 @@ void forward(robot *aRobot, objectlist listofobject)
 ### How to understand the code written down in the terminal
 ![image](https://user-images.githubusercontent.com/91853600/141027043-5c912c25-098a-4c2a-85a1-61c93989c3ee.png)
 ![image](https://user-images.githubusercontent.com/91853600/141026936-5b59d481-127c-4cab-8407-47aaf7809935.png)
-```
+```python
 int main(int argc, char **argv)
 {
     srand(time(NULL));
@@ -186,7 +186,7 @@ int main(int argc, char **argv)
 ```
 ## algorithm
 
-```
+```python
 void algorithm(robot *aRobot, objectlist listofobject)
 {
     int nums_forward =0;
